@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hackathon</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+/* ===== GLOBAL ===== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg,#0a1f44,#081733,#050d1f);
+    background-size: 300% 300%;
+    animation: backgroundMove 18s ease infinite;
+    color:white;
+    height:100vh;
+    overflow:hidden;
+}
+
+@keyframes backgroundMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* ===== NAVBAR ===== */
+
+nav{
+    height:6rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 50px;
+    background: rgba(10, 25, 60, 0.6);
+    backdrop-filter: blur(14px);
+    border-bottom:1px solid rgba(0,191,255,0.4);
+}
+
+.nav-center{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.college-name{
+    font-family:'Orbitron',sans-serif;
+    letter-spacing:3px;
+    color:#00bfff;
+    position:relative;
+    animation: pulseGlow 6s ease-in-out infinite;  /* Slower */
+}
+
+@keyframes pulseGlow{
+    0%{
+        opacity:0.7;
+        text-shadow:
+            0 0 4px rgba(0,191,255,0.3),
+            0 0 8px rgba(0,191,255,0.3);
+    }
+
+    50%{
+        opacity:1;
+        text-shadow:
+            0 0 18px rgba(0,191,255,0.8),
+            0 0 35px rgba(0,191,255,0.6);
+    }
+
+    100%{
+        opacity:0.7;
+        text-shadow:
+            0 0 4px rgba(0,191,255,0.3),
+            0 0 8px rgba(0,191,255,0.3);
+    }
+}
+
+.nav-left{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.nav-left img{
+    width:85px;
+    height:55px;
+    border-radius:30%;
+    transition:0.3s ease;
+}
+
+.nav-left img:hover{
+    transform:scale(1.05);
+    filter: drop-shadow(0 0 8px #00bfff);
+}
+
+.round-logo{
+    border-radius:50%;
+    width:75px;
+    height:75px;
+    object-fit:cover;
+}
+/* ===== RULES BUTTON ===== */
+
+/* ===== GLOSSY NAVY BLUE RULES BUTTON ===== */
+
+.rules-btn{
+    background: linear-gradient(
+        145deg,
+        rgba(15, 35, 75, 0.9),
+        rgba(8, 20, 50, 0.95)
+    );
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0,191,255,0.5);
+    padding: 10px 28px;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: 0.3s ease;
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,0.2),
+        0 4px 15px rgba(0,0,0,0.4);
+}
+
+.rules-btn:hover{
+    background: linear-gradient(
+        145deg,
+        rgba(20, 45, 95, 0.95),
+        rgba(10, 25, 65, 1)
+    );
+    box-shadow:
+        inset 0 1px 3px rgba(255,255,255,0.3),
+        0 0 18px rgba(0,191,255,0.7);
+    transform: scale(1.05);
+}
+
+/* .rules-btn:hover{
+    box-shadow:0 0 15px rgba(255,0,0,0.7);
+    transform:scale(1.05);
+} */
+
+/* ===== HERO ===== */
+
+.hero{
+    position:relative;
+    height:80vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+    cursor:pointer;
+}
+
+/* Matrix Canvas */
+
+#matrixCanvas{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    opacity:0.18;   /* softer so text is clear */
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero h2{
+    font-family:'Orbitron',sans-serif;
+    letter-spacing:4px;
+    margin-bottom:10px;
+    color:#cfd8ff;
+}
+
+.INNOVESTA{
+    font-size:42px;
+    background: linear-gradient(90deg,#00bfff,#ffffff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:0 0 15px rgba(0,191,255,0.6);
+}
+
+/* HACKATHON TITLE */
+
+.hero h1{
+    font-family:'Orbitron',sans-serif;
+    font-size:100px;
+    letter-spacing:10px;
+    background: linear-gradient(90deg,#00bfff,#ffffff,#ff2a2a);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:0 0 25px rgba(0,191,255,0.5);
+    animation: glowPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse{
+    from{ text-shadow:0 0 20px rgba(0,191,255,0.6); }
+    to{ text-shadow:0 0 45px rgba(255,0,0,0.7); }
+}
+
+/* ===== TIMER ===== */
+
+.timer-box{
+    margin-top:30px;
+    padding:18px 45px;
+    border:2px solid #00bfff;
+    font-size:48px;
+    border-radius:14px;
+    letter-spacing:6px;
+    background: rgba(0,191,255,0.05);
+    box-shadow:0 0 25px rgba(0,191,255,0.3);
+    transition:0.4s ease;
+}
+
+.timer-box:hover{
+    box-shadow:0 0 35px rgba(255,0,0,0.5);
+}
+
+/* ===== START BUTTON ===== */
+
+.start-btn{
+    margin-top:30px;
+    padding:14px 40px;
+    background: linear-gradient(45deg,#005eff,#003d99);
+    border:none;
+    color:white;
+    font-size:18px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+.start-btn:hover{
+    transform:scale(1.07);
+    box-shadow:0 0 15px #00bfff;
+}
+
+/* ===== MODAL ===== */
+
+.overlay{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    top:0;
+    left:0;
+    display:none;
+}
+
+.modal{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:#111a30;
+    color:white;
+    width:420px;
+    padding:30px;
+    border-radius:12px;
+    display:none;
+    z-index:10;
+    border:1px solid #00bfff;
+    box-shadow:0 0 25px rgba(0,191,255,0.4);
+    cursor:pointer;
+}
+/* ===== BLUR BACKGROUND EFFECT ===== */
+.blur-bg{
+    filter: blur(8px);
+    transition: 0.4s ease;
+}
+
+/* ===== GLOSSY OVERLAY ===== */
+.overlay{
+    backdrop-filter: blur(6px);
+    opacity:0;
+    transition:0.4s ease;
+}
+
+/* ===== GLOSSY MODAL UPGRADE ===== */
+.modal{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0.9);
+
+    width:70%;
+    max-width:900px;
+    
+    padding:40px;
+    border-radius:20px;
+
+    background: rgba(10, 20, 40, 0.12);   /* very transparent */
+backdrop-filter: blur(4px);          /* very light blur */
+
+    color:white;
+
+    border:1px solid rgba(0,191,255,0.4);
+    box-shadow:0 0 45px rgba(0,191,255,0.5);
+
+    display:none;
+    z-index:10;
+    transition:0.4s ease;
+}
+
+.modal.active{
+    transform:translate(-50%,-50%) scale(1);
+}
+
+/* .modal.active{
+    transform:translate(-50%,-50%) scale(1);
+} */
+.modal::-webkit-scrollbar{
+    width:6px;
+}
+
+.modal::-webkit-scrollbar-thumb{
+    background:#00bfff;
+    border-radius:10px;
+}
+/* ===== GLOSSY CLOSE BUTTON ===== */
+.modal button{
+    margin-top:20px;
+    padding:10px 25px;
+    background: rgba(255,255,255,0.15);
+    border:1px solid rgba(255,255,255,0.4);
+    color:white;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+.modal button:hover{
+    background: rgba(255,255,255,0.3);
+    box-shadow:0 0 15px rgba(0,191,255,0.6);
+    transform:scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-left">
+        <img src="D:\Intercollege_fest_website\SEI LOGO (1).png">
+        <img class="round-logo" src="csi_innovesta.jpg">
+        <img src="innovesta_logo_1.png">
+    </div>
+
+    <div class="nav-center">
+        <h3 class="college-name">SURANA COLLEGE (AUTONOMOUS)</h3>
+    </div>
+
+    <button class="rules-btn" onclick="openModal()">Rules & Regulations</button>
+</nav>
+
+<div class="hero">
+
+<canvas id="matrixCanvas"></canvas>
+
+<div class="hero-content">
+    <h2>DEPARTMENT OF MCA</h2>
+    <h2>(NBA ACCREDITED)</h2>
+    <h2 class="INNOVESTA" id="decryptText">INNOVESTA 2K26</h2>
+    <h1 id="decryptMain">HACKATHON</h1>
+
+    <div class="timer-box" id="timer">08:00:00</div>
+    <button class="start-btn" onclick="startTimer()">Start</button>
+</div>
+
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="modal" id="modal">
+    <h2>Rules & Regulations</h2>
+
+<h3>General Guidelines</h3>
+<ul>
+    <li>Each team must consist of <strong>2 members</strong>.</li>
+    <li>The event will run for <strong>8 hours</strong> (11:00 AM – 7:00 PM), including break.</li>
+    <li>All coding and development must be completed strictly during the hackathon.</li>
+    <li>No pre-built projects, templates, or reused code is allowed.</li>
+    <li>Teams may use any programming language or framework.</li>
+    <li>A 5-minute review will be conducted every 2 hours.</li>
+    <li>AI Tools are permitted only during designated time slots.</li>
+    <li>The problem statement will be revealed at the start of the event.</li>
+    <li>A surprise “twist” will be introduced mid-event.</li>
+    <li>Participants must bring their own laptops and accessories.</li>
+</ul>
+    <button onclick="closeModal()" style="cursor:pointer;">Close</button>
+</div>
+
+<script>
+/* ===== TIMER ===== */
+
+let totalSeconds = 8 * 60 * 60;
+let timerInterval;
+
+function startTimer(){
+    if(timerInterval) return;
+
+    const startBtn = document.querySelector(".start-btn");
+
+    // Smooth fade + shrink animation
+    startBtn.style.transition = "0.5s ease";
+    startBtn.style.opacity = "0";
+    startBtn.style.transform = "scale(0.8)";
+
+    setTimeout(()=>{
+        startBtn.style.display = "none";
+    },500);
+
+    timerInterval = setInterval(()=>{
+        if(totalSeconds <= 0){
+            clearInterval(timerInterval);
+            document.getElementById("timer").innerText="00:00:00";
+            return;
+        }
+
+        totalSeconds--;
+
+        let h = Math.floor(totalSeconds/3600);
+        let m = Math.floor((totalSeconds%3600)/60);
+        let s = totalSeconds%60;
+
+        document.getElementById("timer").innerText =
+            String(h).padStart(2,'0') + ":" +
+            String(m).padStart(2,'0') + ":" +
+            String(s).padStart(2,'0');
+
+    },1000);
+}
+
+/* ===== MODAL ===== */
+
+function openModal(){
+    const overlay = document.getElementById("overlay");
+    const modal = document.getElementById("modal");
+    const hero = document.querySelector(".hero");
+
+    overlay.style.display="block";
+    modal.style.display="block";
+
+    setTimeout(()=>{
+        overlay.style.opacity="1";
+        modal.classList.add("active");
+    },10);
+
+    hero.classList.add("blur-bg"); // blur background
+}
+setInterval(() => {
+    openModal();
+
+    setTimeout(() => {
+        closeModal();
+    }, 10000);
+
+}, 1800000);
+function closeModal(){
+    const overlay = document.getElementById("overlay");
+    const modal = document.getElementById("modal");
+    const hero = document.querySelector(".hero");
+
+    overlay.style.opacity="0";
+    modal.classList.remove("active");
+
+    setTimeout(()=>{
+        overlay.style.display="none";
+        modal.style.display="none";
+    },400);
+
+    hero.classList.remove("blur-bg"); // remove blur
+}
+/* ===== MATRIX BACKGROUND ===== */
+
+const canvas = document.getElementById("matrixCanvas");
+const ctx = canvas.getContext("2d");
+
+canvas.height = canvas.parentElement.offsetHeight;
+canvas.width = canvas.parentElement.offsetWidth;
+
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*";
+const fontSize = 16;
+const columns = canvas.width / fontSize;
+const drops = [];
+
+for(let i=0;i<columns;i++){
+    drops[i]=1;
+}
+
+function drawMatrix(){
+    ctx.fillStyle="rgba(0,0,0,0.05)";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle="#00bfff";
+    ctx.font=fontSize+"px monospace";
+
+    for(let i=0;i<drops.length;i++){
+        const text=letters[Math.floor(Math.random()*letters.length)];
+        ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+
+        if(drops[i]*fontSize>canvas.height && Math.random()>0.975)
+            drops[i]=0;
+
+        drops[i]++;
+    }
+}
+
+setInterval(drawMatrix,50);
+
+/* ===== DECRYPT LOOP ===== */
+
+function decryptEffect(element){
+    const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    const original=element.innerText;
+
+    setInterval(()=>{
+        let iterations=0;
+        const interval=setInterval(()=>{
+            element.innerText=original.split("")
+            .map((letter,index)=>{
+                if(index<iterations) return original[index];
+                return chars[Math.floor(Math.random()*chars.length)];
+            })
+            .join("");
+
+            if(iterations>=original.length)
+                clearInterval(interval);
+
+            iterations+=1/3;
+        },30);
+    },4000);
+}
+
+decryptEffect(document.getElementById("decryptText"));
+decryptEffect(document.getElementById("decryptMain"));
+
+</script>
+
+</body>
+</html>
