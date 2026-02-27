@@ -8,343 +8,273 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
-/* ===== GLOBAL ===== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg,#0a1f44,#081733,#050d1f);
-    background-size: 300% 300%;
-    animation: backgroundMove 18s ease infinite;
-    color:white;
-    height:100vh;
-    overflow:hidden;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#0a1f44,#081733,#050d1f);
+background-size:300% 300%;
+animation:backgroundMove 18s ease infinite;
+color:white;
+height:100vh;
+overflow:hidden;
 }
 
 @keyframes backgroundMove{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
-
-/* ===== NAVBAR ===== */
 
 nav{
-    height:6rem;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 50px;
-    background: rgba(10, 25, 60, 0.6);
-    backdrop-filter: blur(14px);
-    border-bottom:1px solid rgba(0,191,255,0.4);
+height:6rem;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 50px;
+background:rgba(10,25,60,0.6);
+backdrop-filter:blur(14px);
+border-bottom:1px solid rgba(0,191,255,0.4);
 }
 
+.nav-left{display:flex;align-items:center;gap:20px;}
+.nav-left img{width:85px;height:55px;border-radius:30%;}
+.round-logo{border-radius:50%;width:75px;height:75px;object-fit:cover;}
+
 .nav-center{
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%);
+position:absolute;
+left:50%;
+transform:translateX(-50%);
 }
 
 .college-name{
-    font-family:'Orbitron',sans-serif;
-    letter-spacing:3px;
-    color:#00bfff;
-    position:relative;
-    animation: pulseGlow 6s ease-in-out infinite;  /* Slower */
+font-family:'Orbitron',sans-serif;
+letter-spacing:3px;
+color:#00bfff;
 }
 
-@keyframes pulseGlow{
-    0%{
-        opacity:0.7;
-        text-shadow:
-            0 0 4px rgba(0,191,255,0.3),
-            0 0 8px rgba(0,191,255,0.3);
-    }
+.btn-group{display:flex;gap:15px;}
 
-    50%{
-        opacity:1;
-        text-shadow:
-            0 0 18px rgba(0,191,255,0.8),
-            0 0 35px rgba(0,191,255,0.6);
-    }
-
-    100%{
-        opacity:0.7;
-        text-shadow:
-            0 0 4px rgba(0,191,255,0.3),
-            0 0 8px rgba(0,191,255,0.3);
-    }
+.rules-btn,.judges-btn{
+background:linear-gradient(145deg,#001f3f,#003366);
+border:1px solid rgba(0,191,255,0.6);
+padding:10px 28px;
+color:white;
+font-weight:600;
+cursor:pointer;
+border-radius:30px;
+transition:0.3s ease;
 }
 
-.nav-left{
-    display:flex;
-    align-items:center;
-    gap:20px;
+.rules-btn:hover,.judges-btn:hover{
+box-shadow:0 0 20px rgba(0,191,255,0.8);
+transform:scale(1.05);
 }
 
-.nav-left img{
-    width:85px;
-    height:55px;
-    border-radius:30%;
-    transition:0.3s ease;
-}
-
-.nav-left img:hover{
-    transform:scale(1.05);
-    filter: drop-shadow(0 0 8px #00bfff);
-}
-
-.round-logo{
-    border-radius:50%;
-    width:75px;
-    height:75px;
-    object-fit:cover;
-}
-/* ===== RULES BUTTON ===== */
-
-/* ===== GLOSSY NAVY BLUE RULES BUTTON ===== */
-
-.rules-btn{
-    background: linear-gradient(
-        145deg,
-        rgba(15, 35, 75, 0.9),
-        rgba(8, 20, 50, 0.95)
-    );
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(0,191,255,0.5);
-    padding: 10px 28px;
-    color: #ffffff;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 30px;
-    transition: 0.3s ease;
-    box-shadow:
-        inset 0 1px 2px rgba(255,255,255,0.2),
-        0 4px 15px rgba(0,0,0,0.4);
-}
-
-.rules-btn:hover{
-    background: linear-gradient(
-        145deg,
-        rgba(20, 45, 95, 0.95),
-        rgba(10, 25, 65, 1)
-    );
-    box-shadow:
-        inset 0 1px 3px rgba(255,255,255,0.3),
-        0 0 18px rgba(0,191,255,0.7);
-    transform: scale(1.05);
-}
-
-/* .rules-btn:hover{
-    box-shadow:0 0 15px rgba(255,0,0,0.7);
-    transform:scale(1.05);
-} */
-
-/* ===== HERO ===== */
+/* HERO */
 
 .hero{
-    position:relative;
-    height:80vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    overflow:hidden;
-    cursor:pointer;
+position:relative;
+height:80vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+overflow:hidden;
 }
-
-/* Matrix Canvas */
 
 #matrixCanvas{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:0;
-    opacity:0.18;   /* softer so text is clear */
+position:absolute;
+width:100%;
+height:100%;
+z-index:0;
+opacity:0.18;
 }
 
-.hero-content{
-    position:relative;
-    z-index:2;
-}
-
-.hero h2{
-    font-family:'Orbitron',sans-serif;
-    letter-spacing:4px;
-    margin-bottom:10px;
-    color:#cfd8ff;
-}
+.hero-content{position:relative;z-index:2;}
 
 .INNOVESTA{
-    font-size:42px;
-    background: linear-gradient(90deg,#00bfff,#ffffff);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    text-shadow:0 0 15px rgba(0,191,255,0.6);
+font-size:42px;
+color:#00bfff;
+text-shadow:0 0 15px rgba(0,191,255,0.9);
 }
-
-/* HACKATHON TITLE */
 
 .hero h1{
-    font-family:'Orbitron',sans-serif;
-    font-size:100px;
-    letter-spacing:10px;
-    background: linear-gradient(90deg,#00bfff,#ffffff,#ff2a2a);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    text-shadow:0 0 25px rgba(0,191,255,0.5);
-    animation: glowPulse 3s ease-in-out infinite alternate;
+font-family:'Orbitron',sans-serif;
+font-size:100px;
+letter-spacing:10px;
+color:white;
+text-shadow:0 0 25px #00bfff,0 0 45px #ff2a2a;
 }
 
-@keyframes glowPulse{
-    from{ text-shadow:0 0 20px rgba(0,191,255,0.6); }
-    to{ text-shadow:0 0 45px rgba(255,0,0,0.7); }
-}
-
-/* ===== TIMER ===== */
-
-.timer-box{
-    margin-top:30px;
-    padding:18px 45px;
-    border:2px solid #00bfff;
-    font-size:48px;
-    border-radius:14px;
-    letter-spacing:6px;
-    background: rgba(0,191,255,0.05);
-    box-shadow:0 0 25px rgba(0,191,255,0.3);
-    transition:0.4s ease;
-}
-
-.timer-box:hover{
-    box-shadow:0 0 35px rgba(255,0,0,0.5);
-}
-
-/* ===== START BUTTON ===== */
-
-.start-btn{
-    margin-top:30px;
-    padding:14px 40px;
-    background: linear-gradient(45deg,#005eff,#003d99);
-    border:none;
-    color:white;
-    font-size:18px;
-    border-radius:8px;
-    cursor:pointer;
-    transition:0.3s ease;
-}
-
-.start-btn:hover{
-    transform:scale(1.07);
-    box-shadow:0 0 15px #00bfff;
-}
-
-/* ===== MODAL ===== */
+/* OVERLAY */
 
 .overlay{
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.7);
-    top:0;
-    left:0;
-    display:none;
+position:fixed;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+top:0;
+left:0;
+display:none;
+backdrop-filter:blur(6px);
+opacity:0;
+transition:0.4s ease;
 }
 
-.modal{
-    position:fixed;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    background:#111a30;
-    color:white;
-    width:420px;
-    padding:30px;
-    border-radius:12px;
-    display:none;
-    z-index:10;
-    border:1px solid #00bfff;
-    box-shadow:0 0 25px rgba(0,191,255,0.4);
-    cursor:pointer;
-}
-/* ===== BLUR BACKGROUND EFFECT ===== */
-.blur-bg{
-    filter: blur(8px);
-    transition: 0.4s ease;
+/* MODALS */
+
+.modal,.judges-modal{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(0.9);
+width:80%;
+max-width:1100px;
+padding:50px;
+border-radius:25px;
+background:rgba(8,18,35,0.95);
+border:1px solid rgba(0,191,255,0.4);
+box-shadow:0 0 60px rgba(0,191,255,0.5);
+display:none;
+z-index:20;
+transition:0.4s ease;
+overflow:visible;
 }
 
-/* ===== GLOSSY OVERLAY ===== */
-.overlay{
-    backdrop-filter: blur(6px);
-    opacity:0;
-    transition:0.4s ease;
+.modal.active,.judges-modal.active{
+transform:translate(-50%,-50%) scale(1);
 }
 
-/* ===== GLOSSY MODAL UPGRADE ===== */
-.modal{
-    position:fixed;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%) scale(0.9);
-
-    width:70%;
-    max-width:900px;
-    
-    padding:40px;
-    border-radius:20px;
-
-    background: rgba(10, 20, 40, 0.12);   /* very transparent */
-backdrop-filter: blur(4px);          /* very light blur */
-
-    color:white;
-
-    border:1px solid rgba(0,191,255,0.4);
-    box-shadow:0 0 45px rgba(0,191,255,0.5);
-
-    display:none;
-    z-index:10;
-    transition:0.4s ease;
+.close-btn{
+margin-top:30px;
+padding:10px 25px;
+background:rgba(0,191,255,0.2);
+border:1px solid #00bfff;
+color:white;
+border-radius:30px;
+cursor:pointer;
 }
 
-.modal.active{
-    transform:translate(-50%,-50%) scale(1);
+.close-btn:hover{
+background:#00bfff;
+color:black;
 }
 
-/* .modal.active{
-    transform:translate(-50%,-50%) scale(1);
+/* JUDGES */
+
+.judges-title{
+font-size:32px;
+margin-bottom:30px;
+font-family:'Orbitron',sans-serif;
+color:#00bfff;
+}
+
+.outer-wrapper{
+position:relative;
+overflow:hidden;
+}
+
+.outer-slider{
+display:flex;
+width:200%;
+transition:0.6s ease;
+}
+
+.slide-panel{
+width:50%;
+display:flex;
+justify-content:center;
+gap:40px;
+}
+/* .judges-modal{
+    display:flex;
+    flex-direction:column;
 } */
-.modal::-webkit-scrollbar{
-    width:6px;
+
+.judge-card{
+background:linear-gradient(145deg,#111c30,#0b1626);
+border:1px solid rgba(0,191,255,0.3);
+border-radius:20px;
+padding:30px;
+width:320px;
+text-align:center;
 }
 
-.modal::-webkit-scrollbar-thumb{
-    background:#00bfff;
-    border-radius:10px;
+.judge-img{
+width:120px;
+height:120px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:20px;
+border:3px solid #00bfff;
+box-shadow:0 0 25px rgba(0,191,255,0.9);
 }
-/* ===== GLOSSY CLOSE BUTTON ===== */
-.modal button{
-    margin-top:20px;
-    padding:10px 25px;
-    background: rgba(255,255,255,0.15);
-    border:1px solid rgba(255,255,255,0.4);
+
+.judge-role{color:#00bfff;margin:10px 0;font-size:14px;}
+.judge-desc{font-size:13px;color:#cfd8ff;line-height:1.6;}
+
+.outer-arrow{
+position:absolute;
+right:15px;
+top:50%;
+transform:translateY(-50%);
+background:rgba(0,191,255,0.2);
+border:1px solid #00bfff;
+width:50px;
+height:50px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+font-size:22px;
+transition:0.3s ease;
+}
+
+.outer-arrow:hover{
+background:#00bfff;
+color:black;
+}
+/* ACHIEVEMENT SLIDE */
+
+.achievement-card{
+    background:linear-gradient(145deg,#111c30,#0b1626);
+    border:1px solid rgba(0,191,255,0.3);
+    border-radius:20px;
+    padding:30px;
+    width:700px;
+    text-align:center;
+}
+
+.achievement-img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    border-radius:15px;
+    margin-bottom:20px;
+    border:2px solid #00bfff;
+    box-shadow:0 0 30px rgba(0,191,255,0.7);
+}
+
+.achievement-title{
+    font-family:'Orbitron',sans-serif;
+    color:#00bfff;
+    font-size:18px;
+    margin-bottom:15px;
+}
+
+.achievement-desc{
+    font-size:14px;
+    color:#cfd8ff;
+    line-height:1.7;
+}
+.judge-name{
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:8px;
     color:white;
-    border-radius:30px;
-    cursor:pointer;
-    transition:0.3s ease;
-}
-
-.modal button:hover{
-    background: rgba(255,255,255,0.3);
-    box-shadow:0 0 15px rgba(0,191,255,0.6);
-    transform:scale(1.05);
 }
 </style>
 </head>
@@ -352,201 +282,223 @@ backdrop-filter: blur(4px);          /* very light blur */
 <body>
 
 <nav>
-    <div class="nav-left">
-        <img src="SEI LOGO (1).png">
-        <img class="round-logo" src="csi_innovesta.jpg">
-        <img src="innovesta_logo_1.png">
-    </div>
+<div class="nav-left">
+<img src="SEI LOGO (1).png">
+<img class="round-logo" src="csi_innovesta.jpg">
+<img src="innovesta_logo_1.png">
+</div>
 
-    <div class="nav-center">
-        <h3 class="college-name">SURANA COLLEGE (AUTONOMOUS)</h3>
-    </div>
+<div class="nav-center">
+<h3 class="college-name">SURANA COLLEGE (AUTONOMOUS)</h3>
+</div>
 
-    <button class="rules-btn" onclick="openModal()">Rules & Regulations</button>
+<div class="btn-group">
+<button class="rules-btn" onclick="openRules()">Rules</button>
+<button class="judges-btn" onclick="openJudges()">Judges</button>
+</div>
 </nav>
 
 <div class="hero">
-
 <canvas id="matrixCanvas"></canvas>
-
 <div class="hero-content">
-    <h2>DEPARTMENT OF MCA</h2>
-    <h2>(NBA ACCREDITED)</h2>
-    <h2 class="INNOVESTA" id="decryptText">INNOVESTA 2K26</h2>
-    <h1 id="decryptMain">HACKATHON</h1>
-
-    <div class="timer-box" id="timer">08:00:00</div>
-    <button class="start-btn" onclick="startTimer()">Start</button>
+<h2>DEPARTMENT OF MCA</h2>
+<h2>(NBA ACCREDITED)</h2>
+<h2 class="INNOVESTA" id="decryptText">INNOVESTA 2K26</h2>
+<h1 id="decryptMain">HACKATHON</h1>
 </div>
-
 </div>
 
 <div class="overlay" id="overlay"></div>
+<!-- RULES MODAL -->
+<div class="modal" id="rulesModal">
+    <h2 style="color:#00bfff;">Rules & Regulations</h2>
+    <ul style="margin-top:20px;line-height:1.8;">
+        <li>Each team will have 10 minutes to present.</li>
+        <li>Includes live demo + report + Q&A.</li>
+        <li>Report must include Problem, Approach, Tech Stack, Architecture & Results.</li>
+    </ul>
 
-<div class="modal" id="modal">
-    <h2>Rules & Regulations</h2>
+    <button class="close-btn" onclick="closeRules()">Close</button>
+</div>
+<!-- JUDGES -->
+<div class="judges-modal" id="judgesModal">
+<h2 class="judges-title" id="modalTitle">Judges Panel</h2>
+<div class="outer-wrapper">
+<div class="outer-slider" id="outerSlider">
 
-<h3>General Guidelines</h3>
-<ul>
-    <li>Each team must consist of <strong>2 members</strong>.</li>
-    <li>The event will run for <strong>8 hours</strong> (11:00 AM – 7:00 PM), including break.</li>
-    <li>All coding and development must be completed strictly during the hackathon.</li>
-    <li>No pre-built projects, templates, or reused code is allowed.</li>
-    <li>Teams may use any programming language or framework.</li>
-    <li>A 5-minute review will be conducted every 2 hours.</li>
-    <li>AI Tools are permitted only during designated time slots.</li>
-    <li>The problem statement will be revealed at the start of the event.</li>
-    <li>A surprise “twist” will be introduced mid-event.</li>
-    <li>Participants must bring their own laptops and accessories.</li>
-</ul>
-    <button onclick="closeModal()" style="cursor:pointer;">Close</button>
+    <!-- SLIDE 1 (Judges) -->
+    <div class="slide-panel">
+
+        <div class="judge-card">
+            <img src="WhatsApp Image 2026-02-27 at 2.45.04 PM.jpeg" class="judge-img">
+            <h3 class="judge-name">Mr. Rohith D G</h3>
+            <div class="judge-role">Security Operations Engineer</div>
+            <div class="judge-desc">
+                Specialist in Microsoft Sentinel & Defender with expertise in 
+                incident response, threat detection, privileged access management 
+                and building SOPs for real-world cyber attack handling.
+            </div>
+        </div>
+
+        <div class="judge-card">
+            <img src="WhatsApp Image 2026-02-27 at 2.45.05 PM.jpeg" class="judge-img">
+            <h3 class="judge-name">Mr. Abhishek S.</h3>
+            <div class="judge-role">Technical Lead – Cloud Infrastructure</div>
+            <div class="judge-desc">
+                8+ years Cloud Specialist with expertise in infrastructure, automation 
+                and system administration. Awarded for Leadership, Accountability 
+                and Customer Focus.
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SLIDE 2 (Achievement) -->
+    <div class="slide-panel">
+        <div class="achievement-card">
+            <h3>Achievement in Hackathons</h3>
+            <img src="WhatsApp Image 2026-02-27 at 3.15.14 PM.jpeg" class="achievement-img">
+
+            <div class="achievement-title">
+                SMART INDIA HACKATHON 2017 – Grand Finale
+            </div>
+
+            <div class="achievement-desc">
+                MCA students Mr. Abhishek S, Rohith D G and team participated 
+                in the Grand Finale of ‘SMART INDIA HACKATHON 2017’ at Chandigarh 
+                on 1st and 2nd April 2017.
+
+                This initiative by the Government of India is considered 
+                one of the world’s biggest digital movements.
+            </div>
+        </div>
+    </div>
+
+</div>
+<button class="close-btn" onclick="closeJudges()">Close</button>
+</div>
+
+<div class="outer-arrow" id="arrowBtn" onclick="toggleSlide()">➜</div>
+</div>
+
+
 </div>
 
 <script>
-/* ===== TIMER ===== */
+const overlay=document.getElementById("overlay");
+const judgesModal=document.getElementById("judgesModal");
+const outerSlider=document.getElementById("outerSlider");
+const arrowBtn=document.getElementById("arrowBtn");
 
-let totalSeconds = 8 * 60 * 60;
-let timerInterval;
+let outerIndex=0;
 
-function startTimer(){
-    if(timerInterval) return;
-
-    const startBtn = document.querySelector(".start-btn");
-
-    // Smooth fade + shrink animation
-    startBtn.style.transition = "0.5s ease";
-    startBtn.style.opacity = "0";
-    startBtn.style.transform = "scale(0.8)";
-
-    setTimeout(()=>{
-        startBtn.style.display = "none";
-    },500);
-
-    timerInterval = setInterval(()=>{
-        if(totalSeconds <= 0){
-            clearInterval(timerInterval);
-            document.getElementById("timer").innerText="00:00:00";
-            return;
-        }
-
-        totalSeconds--;
-
-        let h = Math.floor(totalSeconds/3600);
-        let m = Math.floor((totalSeconds%3600)/60);
-        let s = totalSeconds%60;
-
-        document.getElementById("timer").innerText =
-            String(h).padStart(2,'0') + ":" +
-            String(m).padStart(2,'0') + ":" +
-            String(s).padStart(2,'0');
-
-    },1000);
+function openJudges(){
+overlay.style.display="block";
+judgesModal.style.display="block";
+setTimeout(()=>{overlay.style.opacity="1";judgesModal.classList.add("active");},10);
 }
 
-/* ===== MODAL ===== */
+function closeJudges(){
+overlay.style.opacity="0";
+judgesModal.classList.remove("active");
+setTimeout(()=>{
+overlay.style.display="none";
+judgesModal.style.display="none";
+},400);
 
-function openModal(){
-    const overlay = document.getElementById("overlay");
-    const modal = document.getElementById("modal");
-    const hero = document.querySelector(".hero");
-
-    overlay.style.display="block";
-    modal.style.display="block";
-
-    setTimeout(()=>{
-        overlay.style.opacity="1";
-        modal.classList.add("active");
-    },10);
-
-    hero.classList.add("blur-bg"); // blur background
+isSecondSlide = false;
+outerSlider.style.transform="translateX(0%)";
+arrowBtn.innerHTML="➜";
+document.getElementById("modalTitle").innerText="Judges Panel";
 }
-setInterval(() => {
-    openModal();
+let isSecondSlide = false;
 
-    setTimeout(() => {
-        closeModal();
-    }, 10000);
+function toggleSlide(){
 
-}, 1800000);
-function closeModal(){
-    const overlay = document.getElementById("overlay");
-    const modal = document.getElementById("modal");
-    const hero = document.querySelector(".hero");
+    const title = document.getElementById("modalTitle");
 
-    overlay.style.opacity="0";
-    modal.classList.remove("active");
+    if(isSecondSlide){
+        outerSlider.style.transform = "translateX(0%)";
+        arrowBtn.innerHTML = "➜";
+        title.innerText = "Judges Panel";
+    } else {
+        outerSlider.style.transform = "translateX(-50%)";
+        arrowBtn.innerHTML = "⬅";
+        title.innerText = "Achievement in Hackathons";
+    }
 
-    setTimeout(()=>{
-        overlay.style.display="none";
-        modal.style.display="none";
-    },400);
-
-    hero.classList.remove("blur-bg"); // remove blur
+    isSecondSlide = !isSecondSlide;
 }
-/* ===== MATRIX BACKGROUND ===== */
-
-const canvas = document.getElementById("matrixCanvas");
-const ctx = canvas.getContext("2d");
-
-canvas.height = canvas.parentElement.offsetHeight;
-canvas.width = canvas.parentElement.offsetWidth;
-
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*";
-const fontSize = 16;
-const columns = canvas.width / fontSize;
-const drops = [];
-
-for(let i=0;i<columns;i++){
-    drops[i]=1;
-}
+/* MATRIX */
+const canvas=document.getElementById("matrixCanvas");
+const ctx=canvas.getContext("2d");
+canvas.height=window.innerHeight;
+canvas.width=window.innerWidth;
+const letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+const fontSize=16;
+const columns=canvas.width/fontSize;
+const drops=Array(Math.floor(columns)).fill(1);
 
 function drawMatrix(){
-    ctx.fillStyle="rgba(0,0,0,0.05)";
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-
-    ctx.fillStyle="#00bfff";
-    ctx.font=fontSize+"px monospace";
-
-    for(let i=0;i<drops.length;i++){
-        const text=letters[Math.floor(Math.random()*letters.length)];
-        ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-
-        if(drops[i]*fontSize>canvas.height && Math.random()>0.975)
-            drops[i]=0;
-
-        drops[i]++;
-    }
-}
-
+ctx.fillStyle="rgba(0,0,0,0.05)";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="#00bfff";
+ctx.font=fontSize+"px monospace";
+for(let i=0;i<drops.length;i++){
+const text=letters[Math.floor(Math.random()*letters.length)];
+ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+if(drops[i]*fontSize>canvas.height&&Math.random()>0.975)drops[i]=0;
+drops[i]++;
+}}
 setInterval(drawMatrix,50);
 
-/* ===== DECRYPT LOOP ===== */
-
+/* DECRYPT */
 function decryptEffect(element){
-    const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    const original=element.innerText;
+const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+const original=element.textContent;
 
-    setInterval(()=>{
-        let iterations=0;
-        const interval=setInterval(()=>{
-            element.innerText=original.split("")
-            .map((letter,index)=>{
-                if(index<iterations) return original[index];
-                return chars[Math.floor(Math.random()*chars.length)];
-            })
-            .join("");
+function animate(){
+let iteration=0;
+const interval=setInterval(()=>{
+element.textContent=original.split("")
+.map((char,index)=>{
+if(index<iteration)return original[index];
+return chars[Math.floor(Math.random()*chars.length)];
+}).join("");
 
-            if(iterations>=original.length)
-                clearInterval(interval);
-
-            iterations+=1/3;
-        },30);
-    },4000);
+if(iteration>=original.length){
+clearInterval(interval);
+}
+iteration+=0.6;
+},40);
+}
+animate();
+setInterval(animate,4000);
 }
 
+window.onload=function(){
 decryptEffect(document.getElementById("decryptText"));
 decryptEffect(document.getElementById("decryptMain"));
+};
+const rulesModal = document.getElementById("rulesModal");
 
+function openRules(){
+    overlay.style.display="block";
+    rulesModal.style.display="block";
+    setTimeout(()=>{
+        overlay.style.opacity="1";
+        rulesModal.classList.add("active");
+    },10);
+}
+
+function closeRules(){
+    overlay.style.opacity="0";
+    rulesModal.classList.remove("active");
+    setTimeout(()=>{
+        overlay.style.display="none";
+        rulesModal.style.display="none";
+    },400);
+}
 </script>
 
 </body>
