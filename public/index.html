@@ -157,7 +157,7 @@ async function loadEvent(){
             return;
         }
 
-        // 🔥 Only these lines update
+        // Only these lines update
         document.getElementById("deptLine").innerText =
             "DEPARTMENT OF " + data.department;
 
@@ -276,34 +276,46 @@ setInterval(drawMatrix,50);
    DECRYPT EFFECT
 ========================= */
 
+/* =========================
+   DECRYPT EFFECT (FIXED)
+========================= */
+
 function decryptEffect(element){
-const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-let original=element.innerText;
 
-setInterval(()=>{
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-    original = element.innerText; // 🔥 important to update dynamic text
+    // 🔥 Store real original text only once
+    const trueText = element.innerText;
 
-    let iterations=0;
-    const interval=setInterval(()=>{
+    setInterval(()=>{
 
-        element.innerText=original.split("")
-        .map((letter,index)=>{
-            if(index<iterations) return original[index];
-            return chars[Math.floor(Math.random()*chars.length)];
-        }).join("");
+        let iterations = 0;
 
-        if(iterations>=original.length) clearInterval(interval);
-        iterations+=1/3;
+        const interval = setInterval(()=>{
 
-    },30);
+            element.innerText = trueText.split("")
+            .map((letter,index)=>{
+                if(index < iterations) return trueText[index];
+                return chars[Math.floor(Math.random()*chars.length)];
+            }).join("");
 
-},4000);
+            if(iterations >= trueText.length){
+                clearInterval(interval);
+
+                // 🔥 Force exact original text
+                element.innerText = trueText;
+            }
+
+            iterations += 1/3;
+
+        },30);
+
+    },4000);
 }
-
-decryptEffect(document.getElementById("decryptText"));
-decryptEffect(document.getElementById("decryptMain"));
-
+loadEvent().then(()=>{
+    decryptEffect(document.getElementById("decryptText"));
+    decryptEffect(document.getElementById("decryptMain"));
+});
 /* =========================
    INITIAL LOAD
 ========================= */
